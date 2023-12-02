@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import AuthRoutes from '../components/route/AuthRoutes'
 import ProtectedRoute from '../components/route/ProtectedRoute'
@@ -11,7 +11,7 @@ const AllPages = () => {
     const { signedIn } = useSelector((state) => state.session);
     const { role } = useSelector((state) => state.user);
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
         <Routes>
             <Route  path='/' element={<ProtectedRoute isAuthenicated={signedIn}/>}>
                 {
@@ -44,7 +44,7 @@ const AllPages = () => {
             </Route>
             <Route  path='*' element={<p>Not Found</p>}/>
         </Routes>
-    </>
+    </Suspense>
   )
 }
 

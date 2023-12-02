@@ -1,0 +1,36 @@
+.action-link {
+    color: #549FF9;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.text-input {
+    border-radius: 10px;
+    border: 1px solid var(--gray-30, #B4B4BB);
+    background: var(--White-Base, #FFF);
+    outline: none;
+    padding: 15px 30px;
+
+    color: #AAA;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.default-btn {
+    text-align: center;
+    padding: 5px 20px;
+    color: var(--White-Base, #FFF);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36px; /* 200% */
+    border-radius: 99px;
+    background: #152540;
+    cursor: pointer;
+}
