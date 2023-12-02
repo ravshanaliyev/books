@@ -5,12 +5,15 @@ import ProtectedRoute from '../components/route/ProtectedRoute'
 import { authRoutes, protectedRoutes } from '../configs/routes'
 import AppRoute from '../components/route/AppRoute'
 import CheckAuth from '../components/route/CheckAuth'
+import { useSelector } from 'react-redux'
 
 const AllPages = () => {
+    const { signedIn } = useSelector((state) => state.session);
+    const { role } = useSelector((state) => state.user);
   return (
     <>
         <Routes>
-            <Route  path='/' element={<ProtectedRoute/>}>
+            <Route  path='/' element={<ProtectedRoute isAuthenicated={signedIn}/>}>
                 {
                     protectedRoutes.map((route) => (
                         <Route
@@ -18,6 +21,7 @@ const AllPages = () => {
                             path={route.path}
                             element={
                                 <CheckAuth
+                                    userRole={role}
                                     role={route.role}
                                 >
                                     <AppRoute component={route.component}/>
@@ -27,7 +31,7 @@ const AllPages = () => {
                     ))
                 }
             </Route>
-            <Route  path='/' element={<AuthRoutes/>}>
+            <Route  path='/' element={<AuthRoutes isAuthenicated={signedIn}/>}>
                 {
                     authRoutes.map((route) => (
                         <Route

@@ -1,8 +1,7 @@
 import React from 'react'
-import { isAuthenicated } from '../../store'
 import { Navigate, Outlet } from 'react-router-dom'
 
-const ProtectedRoute = () => {
+const ProtectedRoute = ({ isAuthenicated }) => {
     if (isAuthenicated) {
         return <Navigate to={"/register"} replace />
     }
