@@ -5,6 +5,7 @@ import ActionLink from '../../components/ui/ActionLink'
 import Form from '../../components/template/Form'
 import Input from '../../components/ui/Input'
 import Button from '../../components/ui/Button'
+
 const register = () => {
   return (
     <AuthContainer img={coverImg}>
